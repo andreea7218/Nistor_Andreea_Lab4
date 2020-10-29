@@ -1,0 +1,81 @@
+﻿<Window x:Name="frmMain" x:Class="Nistor_Andreea_Lab2.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Nistor_Andreea_Lab2"
+        mc:Ignorable="d"
+        Title=" Virtual Doughnuts Factory" Height="450" Width="800" ResizeMode="NoResize" Loaded="frmMain_Loaded">
+    <Window.OpacityMask>
+        <SolidColorBrush Color="{DynamicResource {x:Static SystemColors.ActiveCaptionColorKey}}"/>
+    </Window.OpacityMask>
+    <Grid KeyUp="txtQuantity_KeyPress">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="47*"/>
+            <ColumnDefinition Width="753*"/>
+        </Grid.ColumnDefinitions>
+        <Grid.Background>
+            <SolidColorBrush Color="{DynamicResource {x:Static SystemColors.ActiveCaptionColorKey}}"/>
+        </Grid.Background>
+        <Label x:Name="lblTitle_" Content="Doughnuts - Bake &amp; Sale" HorizontalAlignment="Left" Margin="260,0,0,0" VerticalAlignment="Top" FontWeight="Bold" FontSize="24" Grid.Column="1" Height="43" Width="317"/>
+        <Menu x:Name="mnuMain"  Margin="0,26,0,0" Height="17" Width="130" HorizontalAlignment="Left" VerticalAlignment="Top" >
+            <MenuItem Header="File" >
+                <MenuItem Header="Exit" Click="exitToolStripMenuItem_Click"/>
+            </MenuItem>
+            <MenuItem Header="Doughnuts" RenderTransformOrigin="0.632,0.59">
+                <MenuItem Header="Make">
+                    <MenuItem Header="Raised">
+                        <MenuItem  x:Name="glazedToolStripMenuItem" Header="Glazed"  Click="glazedToolStripMenuItem_Click" IsCheckable="True" />
+                        <MenuItem  x:Name="sugarToolStripMenuItem" Header="Sugar"  IsCheckable="True" Click="sugarToolStripMenuItem_Click" />
+                    </MenuItem>
+                    <MenuItem Header="Filled">
+                        <MenuItem Header="Lemon"  x:Name=" lemonFilledMenuItem"   IsCheckable="True"  />
+                        <MenuItem Header="Vanilla"  x:Name="chocolateFilledMenuItem"  IsCheckable="True" />
+                        <MenuItem Header="Chocolate"    x:Name="vanillaFilledMenuItem" IsCheckable="True" />
+                    </MenuItem>
+                </MenuItem>
+                <MenuItem   x:Name="mnuStop"    Header="Stop" Click="stopToolStripMenuItem_Click"/>
+            </MenuItem>
+        </Menu>
+        <GroupBox x:Name="gbRaised" Grid.Column="1" Header=" Raised " Margin="30,56,497,259" FontWeight="Bold">
+            <Canvas>
+                <Label x:Name="lblGlazedRaised" Content=" Glazed " Canvas.Left="29" Canvas.Top="1"/>
+                <Label x:Name="lblSugarRaised_" Content=" Sugar" Canvas.Left="29" Canvas.Top="39"/>
+                <TextBox x:Name="txtGlazedRaised" Canvas.Left="110" Text="0" TextWrapping="Wrap" Width="68" Height="27" IsReadOnly="True"/>
+                <TextBox x:Name="txtSugarRaised" Canvas.Left="110" Canvas.Top="39" Text="0" TextWrapping="Wrap" Width="68" Height="26" IsReadOnly="True"/>
+            </Canvas>
+        </GroupBox>
+        <GroupBox x:Name="gbFilled_" Grid.Column="1" Header="Filled " Margin="377,48,41,230" FontWeight="Bold">
+            <Label x:Name="lblChocolateFilled" Content="Chocolate" HorizontalAlignment="Left" Margin="22,0,0,0" Height="32" Width="64"/>
+        </GroupBox>
+        <Label x:Name="lblLemonFilled" Content=" Lemon " Grid.Column="1" HorizontalAlignment="Left" Margin="419,77,0,0" VerticalAlignment="Top" Width="78" Height="39"/>
+        <Label x:Name="lblVanillaFilled" Content="Vanilla" Grid.Column="1" HorizontalAlignment="Left" Margin="419,161,0,0" VerticalAlignment="Top" Width="66" Height="28"/>
+        <TextBox x:Name="txtLemonFilled_" Grid.Column="1" HorizontalAlignment="Left" Margin="583,77,0,0" Text="0" TextWrapping="Wrap" VerticalAlignment="Top" Width="86" Height="22" IsReadOnly="True"/>
+        <TextBox x:Name="txtVanillaFilled_" Grid.Column="1" HorizontalAlignment="Left" Margin="583,161,0,0" Text="0" TextWrapping="Wrap" VerticalAlignment="Top" Width="86" Height="28" IsReadOnly="True"/>
+        <TextBox x:Name="txtVanillaFilled" Grid.Column="1" HorizontalAlignment="Left" Margin="583,112,0,0" Text="0" TextWrapping="Wrap" VerticalAlignment="Top" Width="86" Height="32" IsReadOnly="True"/>
+        <GroupBox x:Name="___gbSale_" Grid.Column="1" Header="Current Sale" Width="712" Height="200" Margin="0,209,0,0" FontWeight="Bold" HorizontalAlignment="Left" VerticalAlignment="Top">
+            <ListBox Height="82" Margin="26,0,174,0"/>
+        </GroupBox>
+        <TextBox x:Name="txtQuantity_" HorizontalAlignment="Left" Margin="102,232,0,0" Text="0" TextWrapping="Wrap" VerticalAlignment="Top" Width="48" Grid.Column="1" Height="21"/>
+        <Label x:Name="lblType" Content="Type " Grid.Column="1" HorizontalAlignment="Left" Margin="175,225,0,181" RenderTransformOrigin="0.448,1.81" Width="59">
+            <Label.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform ScaleY="1"/>
+                    <SkewTransform/>
+                    <RotateTransform/>
+                    <TranslateTransform/>
+                </TransformGroup>
+            </Label.RenderTransform>
+        </Label>
+        <Label x:Name="lblPrice" Content="Price" Grid.Column="1" HorizontalAlignment="Left" Margin="363,230,0,0" VerticalAlignment="Top" Width="60"/>
+        <TextBox x:Name="txtPrice_" Grid.Column="1" HorizontalAlignment="Left" Margin="474,232,0,0" Text="0" TextWrapping="Wrap" VerticalAlignment="Top" Width="58" IsReadOnly="True" Height="24"/>
+        <Label x:Name="lblQuantity" Content="Quantity " HorizontalAlignment="Left" Margin="10,226,0,0" VerticalAlignment="Top" Width="72" Grid.Column="1"/>
+        <ComboBox Grid.Column="1" HorizontalAlignment="Left" Margin="239,225,0,0" VerticalAlignment="Top" Width="78" Height="27"/>
+        <Label x:Name="txtTotal_" Content="Total" Grid.Column="1" HorizontalAlignment="Left" Margin="393,377,0,0" VerticalAlignment="Top" Width="81" Height="32" FontWeight="Bold"/>
+        <TextBox x:Name="___txtTotal" Grid.Column="1" HorizontalAlignment="Left" Margin="479,377,0,0" Text="0" TextWrapping="Wrap" VerticalAlignment="Top" Width="62" IsReadOnly="True"/>
+        <Button x:Name="btnAddToSale" Content="Add To Sale " Grid.Column="1" HorizontalAlignment="Left" Margin="583,265,0,0" VerticalAlignment="Top" Width="105"/>
+        <Button x:Name="btnRemoveItem" Content=" Remove Item " Grid.Column="1" HorizontalAlignment="Left" Margin="583,300,0,0" VerticalAlignment="Top" Width="105" Height="22"/>
+        <Button x:Name="btnCheckOut_" Content="Check Out " Grid.Column="1" HorizontalAlignment="Left" Margin="583,343,0,0" VerticalAlignment="Top" Width="105" FontWeight="Bold"/>
+
+    </Grid>
+</Window>
